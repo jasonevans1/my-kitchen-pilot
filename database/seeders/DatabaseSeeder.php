@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Post;
 use App\Models\User;
 use Filament\Notifications\Notification;
 use Illuminate\Database\Seeder;
