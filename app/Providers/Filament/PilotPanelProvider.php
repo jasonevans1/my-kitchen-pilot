@@ -30,8 +30,8 @@ class PilotPanelProvider extends PanelProvider
             ->path('pilot')
             ->login()
             ->profile()
-            ->spa()
-            ->databaseNotifications()
+            ->passwordReset()
+            ->registration()
             ->plugins([
                 BreezyCore::make()
                     ->myProfile(
