@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\Household;
+use App\Models\User;
+use Tests\TestCase;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -11,19 +15,27 @@
 |
 */
 
-uses(\Tests\TestCase::class)->in('Feature');
+uses(TestCase::class)->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
-| Expectations
+| Functions
 |--------------------------------------------------------------------------
 |
-| When you're writing tests, you often need to check that values meet certain conditions. The
-| "expect()" function gives you access to a set of "expectations" methods that you can use
-| to assert different things. Of course, you may extend the Expectation API at any time.
+| While Pest is very powerful out-of-the-box, you may have some testing code specific to your
+| project that you don't want to repeat in every file. Here you can also expose helpers as
+| global functions to help you to reduce the number of lines of code in your test files.
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
+function loginAsUser(?User $user = null): User
+{
+    $household = Household::factory()->create([
+        'name' => 'Pilot Household',
+    ]);
+    $user = $user ?? User::factory()->create();
+    $user->households()->attach($household);
+    test()->actingAs($user);
+
+    return $user;
+}

@@ -1,15 +1,11 @@
 <?php
 
-use App\Models\User;
-
-use function Pest\Laravel\actingAs;
-
 beforeEach(function () {
-    actingAs(User::factory()->create());
+    $this->loggedInUser = loginAsUser();
 });
 
 it('can login to pilot and can be rendered and authenticate', function () {
-    $response = $this->get('/pilot');
+    $response = $this->get('/pilot/1');
 
     $response->assertStatus(200);
     $this->assertAuthenticated();
