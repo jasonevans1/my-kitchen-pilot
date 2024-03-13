@@ -71,8 +71,14 @@ it('can create a recipe', function () {
         ->for($this->loggedInUser)
         ->for($this->loggedInUser->households->first())
         ->make();
+    $ingredients = \App\Models\Ingredient::factory()
+        ->count(1)
+        ->for($this->loggedInUser->households->first())
+        ->make();
+    \Filament\Facades\Filament::setTenant($this->loggedInUser->households->first());
 
     Livewire::test(RecipeResource\Pages\CreateRecipe::class)
+        ->set('data.ingredients', [])
         ->fillForm([
             'user_id' => $this->loggedInUser->id,
             'household_id' => $this->loggedInUser->households()->first()->id,
@@ -82,6 +88,16 @@ it('can create a recipe', function () {
             'cook_time' => $recipe->cook_time,
             'serves' => $recipe->serves,
         ])
+        ->set('data.ingredients', [
+            [
+                'name' => $ingredients[0]->name,
+                'quantity' => $ingredients[0]->quantity,
+                'unit' => $ingredients[0]->unit,
+                'note' => $ingredients[0]->note,
+                'household_id' => $this->loggedInUser->households->first()->id,
+            ],
+        ]
+        )
         ->call('create')
         ->assertHasNoFormErrors();
 
@@ -93,5 +109,11 @@ it('can create a recipe', function () {
         'prep_time' => $recipe->prep_time,
         'cook_time' => $recipe->cook_time,
         'serves' => $recipe->serves,
+    ]);
+    $this->assertDatabaseHas(\App\Models\Ingredient::class, [
+        'name' => $ingredients[0]->name,
+        'quantity' => $ingredients[0]->quantity,
+        'unit' => $ingredients[0]->unit,
+        'note' => $ingredients[0]->note,
     ]);
 });

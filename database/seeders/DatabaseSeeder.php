@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Household;
+use App\Models\Ingredient;
 use App\Models\Recipe;
 use App\Models\User;
 use Filament\Notifications\Notification;
@@ -43,6 +44,15 @@ class DatabaseSeeder extends Seeder
         ]);
         $recipe->user()->associate($pilotUser);
         $recipe->household()->associate($household);
+
+        $ingredient = Ingredient::factory()->create([
+            'name' => 'Test Ingredient',
+            'quantity' => 1,
+            'unit' => 'cup',
+            'note' => 'Test Note',
+            'recipe_id' => $recipe->id,
+            'household_id' => $household->id,
+        ]);
 
         $householdTwo = Household::factory()->create([
             'name' => 'Pilot Household Two',

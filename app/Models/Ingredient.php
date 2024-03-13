@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Recipe extends Model
+class Ingredient extends Model
 {
     use HasFactory;
 
@@ -18,33 +17,21 @@ class Recipe extends Model
     ];
 
     protected $fillable = [
-        'title',
-        'instructions',
-        'user_id',
+        'name',
+        'unit',
+        'quantity',
+        'note',
         'household_id',
-        'prep_time',
-        'cook_time',
-        'serves',
+        'recipe_id',
     ];
 
-    /**
-     * Get the user that owns the recipe.
-     */
-    public function user(): BelongsTo
+    public function recipe(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Recipe::class);
     }
 
-    /**
-     * Get the household that owns the recipe.
-     */
     public function household(): BelongsTo
     {
         return $this->belongsTo(Household::class);
-    }
-
-    public function ingredients(): HasMany
-    {
-        return $this->hasMany(Ingredient::class);
     }
 }
