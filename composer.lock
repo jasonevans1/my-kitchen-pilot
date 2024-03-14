@@ -6149,16 +6149,16 @@
         },
         {
             "name": "sinnbeck/markdom",
-            "version": "v2.0",
+            "version": "2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sinnbeck/markdom.git",
-                "reference": "de9c441bb0488614b7b03a6fc364dce13e4666cf"
+                "reference": "0f01be5092edd2ef866bf3a518bc70d7a8ff2396"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sinnbeck/markdom/zipball/de9c441bb0488614b7b03a6fc364dce13e4666cf",
-                "reference": "de9c441bb0488614b7b03a6fc364dce13e4666cf",
+                "url": "https://api.github.com/repos/sinnbeck/markdom/zipball/0f01be5092edd2ef866bf3a518bc70d7a8ff2396",
+                "reference": "0f01be5092edd2ef866bf3a518bc70d7a8ff2396",
                 "shasum": ""
             },
             "require": {
@@ -6201,9 +6201,9 @@
             "description": "Converts markdown to html with classes",
             "support": {
                 "issues": "https://github.com/sinnbeck/markdom/issues",
-                "source": "https://github.com/sinnbeck/markdom/tree/v2.0"
+                "source": "https://github.com/sinnbeck/markdom/tree/2.1"
             },
-            "time": "2022-07-25T13:21:50+00:00"
+            "time": "2024-03-13T08:08:47+00:00"
         },
         {
             "name": "spatie/backtrace",
@@ -7081,16 +7081,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v6.4.3",
+            "version": "v6.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "6db31849011fefe091e94d0bb10cba26f7919894"
+                "reference": "f0e7ec3fa17000e2d0cb4557b4b47c88a6a63531"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/6db31849011fefe091e94d0bb10cba26f7919894",
-                "reference": "6db31849011fefe091e94d0bb10cba26f7919894",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/f0e7ec3fa17000e2d0cb4557b4b47c88a6a63531",
+                "reference": "f0e7ec3fa17000e2d0cb4557b4b47c88a6a63531",
                 "shasum": ""
             },
             "require": {
@@ -7128,7 +7128,7 @@
             "description": "Eases DOM navigation for HTML and XML documents",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dom-crawler/tree/v6.4.3"
+                "source": "https://github.com/symfony/dom-crawler/tree/v6.4.4"
             },
             "funding": [
                 {
@@ -7144,7 +7144,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-23T14:51:35+00:00"
+            "time": "2024-02-07T09:17:57+00:00"
         },
         {
             "name": "symfony/error-handler",
